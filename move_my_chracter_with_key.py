@@ -41,13 +41,13 @@ def handle_events():
 def move_character():
     global x, y
 
-    if dirx == 1 and diry == 0:
+    if dirx == 1 and diry == 0 and x < 1214:
         x += 5
-    elif dirx == -1 and diry == 0:
+    elif dirx == -1 and diry == 0 and x > 0:
         x -= 5
-    elif dirx == 0 and diry == 1:
+    elif dirx == 0 and diry == 1 and y < 962:
         y += 5
-    elif dirx == 0 and diry == -1:
+    elif dirx == 0 and diry == -1 and y > 0:
         y -= 5
 
 def character_draw():
@@ -68,10 +68,8 @@ def character_draw():
         character.clip_draw(frame * 32 + 160, 195, 32, 62, x, y, 150, 150)
     elif dirx == 0 and diry == -1: # 아래쪽 진행 애니메이션
         character.clip_draw(frame * 32, 193, 32, 62, x, y, 150, 150)
-
-
-
-
+    else:
+        character.clip_draw(frame * 65 + 318, 289, 64, 40, x, y, 150, 150)
 
 running = True
 x = 1280 // 2
